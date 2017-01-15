@@ -1,0 +1,96 @@
+.contact {
+	.content {
+		margin-top: 2em;
+		border-top: 1px solid #BDC3C7;
+
+		h1 {
+			padding-bottom: 10px;
+		}
+
+		h2 {
+			padding-bottom: 2em;
+			font-size: 15px;
+		    font-weight: 600;
+		    color: #000;
+		    text-align: center;
+			.emailaddress {
+				cursor: pointer;
+			}
+		}
+	}
+
+	#form {
+		margin-bottom: 3em;
+		#error {
+			display: none;
+			> span {
+				display: block;
+				text-align: center;
+			    padding: .5em 0;
+			    margin-bottom: 2em;
+			    font-size: 17px;
+			    background-color: $invalid;
+			    color: white;
+			}
+		}
+
+		label.error{
+		    font-size: 12px;
+		    padding-top: 10px;
+		    color: $invalid;
+		}
+
+		#success {
+			display: none;
+			> span {
+				display: block;
+				text-align: center;
+			    padding: .5em 0;
+			    margin-bottom: 2em;
+			    font-size: 17px;
+			    background-color: $valid;
+			    color: white;
+			}			
+		}
+
+		input.submit {
+			display: block;
+			margin-left: 15px;
+		}
+		
+		.form-group {
+			input,
+			textarea {
+				max-width: 100%;
+				border: none;
+			    box-shadow: none;
+			    border-top: 1px solid $field-unfocused;
+			    border-bottom: 1px solid $field-unfocused;
+			    border-radius: 0;
+			    font-size: 16px;
+
+			    @include animate(.2s);
+
+			    &:focus {
+	    			border-top: 1px solid $field-focused;
+	    			border-bottom: 1px solid $field-focused;
+			    }
+
+			    &.valid {
+	    			border-top: 1px solid $valid;
+	    			border-bottom: 1px solid $valid;			    	
+			    }
+
+			    &.error {
+	    			border-top: 1px solid $invalid;
+	    			border-bottom: 1px solid $invalid;			    	
+			    }
+			}
+
+			textarea {
+				max-height: 200px;
+				height: 200px;
+			}
+		}
+	}
+}

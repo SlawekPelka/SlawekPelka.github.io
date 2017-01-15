@@ -1,0 +1,34 @@
+.projects {
+	.content {
+		margin-top: 2em;
+		border-top: 1px solid #BDC3C7;
+	}
+	.website-showcase {
+		padding: 0;
+
+		.showcase {
+			cursor: pointer;
+		}
+
+		img {
+			display: block;
+			width: 75%;
+			height: auto;
+			margin: 0 auto;
+		}
+
+		h1 {
+			font-size: $projects-title-size;
+			font-weight: $projects-title-weight;
+			color: $projects-title-color;
+			text-align: $projects-title-align;
+		}
+
+		p {
+			font-size: $projects-content-size;
+			font-weight: $projects-content-weight;
+			color: $projects-content-color;
+			text-align: $projects-content-align;
+		}
+	}
+}

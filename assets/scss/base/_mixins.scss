@@ -1,0 +1,23 @@
+@mixin animate($spd) {
+  -webkit-transition: all $spd ease-in-out;
+  transition: all $spd ease-in-out;
+}
+
+@mixin center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin centerV() {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin centerH() {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}

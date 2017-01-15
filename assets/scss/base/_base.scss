@@ -1,0 +1,40 @@
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.content-block {
+	h1 {
+		font-size: $intro-title-size;
+		font-weight: $intro-title-weight;
+		color: $intro-title-color;
+		text-align: $intro-title-align;
+	}
+	h2 {
+		font-size: $intro-sub-size;
+		font-weight: $intro-sub-weight;
+		color: $intro-sub-color;
+		text-align: $intro-sub-align;
+	}
+	p {
+		padding: 10px 0 0 0;
+		font-size: $intro-content-size;
+		font-weight: $intro-content-weight;
+		color: $intro-content-color;
+		text-align: $intro-content-align;
+		line-height: 20px;
+	}
+}
+
+.content {
+	@include centerH;
+	padding: 0;
+
+	h1 {
+		padding: 1em 0 1em 0;
+		font-size: $content-title-size;
+		font-weight: $content-title-weight;
+		color: $content-title-color;
+		text-align: $content-title-align;
+	}
+}

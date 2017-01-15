@@ -1,0 +1,19 @@
+.skills {
+	.project-showcase {
+		padding-bottom: 1em;
+		
+		img {
+			display: block;
+			height: 75px;
+			width: auto;
+
+			margin: 0 auto;
+		}
+		h1 {
+			font-size: $skills-title-size;
+			font-weight: $skills-title-weight;
+			color: $skills-title-color;
+			text-align: $skills-title-align;
+		}
+	}
+}
