@@ -1,82 +1,38 @@
-'use strict';
+$(document).ready(function() {
+    //   handle soon-click
+    $(".soon-heading, .soon-tm").on("click", function() {
+        var soonlink = "https://www.linkedin.com/in/sławek-pełka-tailordigital/";
+        window.location = soonlink;
+    });
 
-var app = {} || '';
+    //   handle soon scroll class add
+    var ci = 0;
+    var il = $(".soon-scroll-item").length;
+    var cni = 0;
+    $(".soon-scroll-item").each(function() {
+        $(this).addClass("soon-" + ci);
+        ci++;
+    });
+    $(".soon-scroll-item").first().addClass("soon-first");
+    $(".soon-scroll-item").last().addClass("soon-last");
 
-app = {
-	init: function() { 
-		$(".submit").on('click', function(e) {
-			app.emailCheck();
-		});
-
-		$(".emailaddress").on('click', function() {
-			app.openEmail();
-		});
-
-		$(".menu a").on('click', function() {
-			var scrollTo = $(this).attr("scroll");	
-			var scroll = $(scrollTo).offset();
-				scroll = Math.max(scroll.top - 50);
-			app.smootScroll(scroll);
-		});
-
-		$(window).scroll( function() {
-			app.menuColorize()
-		});
-	},
-	smootScroll: function(scroll) {
-		var body = $('body, html');
-		body.stop().animate({scrollTop: scroll}, '500');
-	},
-	menuColorize: function() {
-		var addRemClass = $(window).scrollTop() > 0 ? 'addClass' : 'removeClass';
-    	$(".menu")[addRemClass]("scroll");
-	},
-	openEmail: function() {
-		var email = $(".emailaddress").text();
-		window.location.href = "mailto:" + email;
-	},
-	emailCheck: function() {
-		$("#form").validate({
-		  rules: {
-		  	email: "required",
-		  	name: "required",
-		  	message: "required"
-		  },
-		  submitHandler: function(form) {
-		  	var data = $("#form").serialize();
-		    $.ajax({
-		    	method: 'POST',
-		    	url: $("#form").attr('action'),
-		    	data: data,
-		    	success: function(response) {
-		  			$("#name, #email, #message").val('').removeClass('valid');
-					$("#form #success span").html(response);
-					$("#form #error").hide();
-					$("#form #success").fadeIn();
-		  		},
-		    	error: function(error) {
-		    		console.log(error);
-		    	}
-		    })
-		  },	
-		  invalidHandler: function(event, validator) {
-		    var errors = validator.numberOfInvalids();
-		    if (errors) {
-		      var message = errors == 1
-		        ? 'You missed 1 field. It has been highlighted.'
-		        : 'You missed ' + errors + ' fields. They have been highlighted.';
-		      $("#form #error span").html(message);
-		      $("#form #success").fadeOut();
-		      $("#form #name,#form #email, #form #message").addClass("wow shake");
-		      $("#form #error").fadeIn();
-		    } else {
-		      $("#form #error").fadeOut();
-		    }
-		  }
-		});
-	}
-}
-
-$(document).ready( function() { 
-	app.init(); 
+    //   handle soon scrol scroll
+    var intervaltime = 4000;
+    setInterval(function() {
+        $(".soon-scroll-item").removeClass("e");
+        setTimeout(function() {
+            $(".soon-scroll-item").removeClass("s").addClass("h");
+        }, 300);
+        setTimeout(function() {
+            $(".soon-" + cni).removeClass("h").addClass("s");
+            setTimeout(function() {
+                $(".soon-scroll-item.s").addClass("e");
+            }, 300);
+            if (cni == il - 1) {
+                cni = 0;
+            } else {
+                cni++;
+            }
+        }, 500);
+    }, intervaltime);
 });

@@ -1,12 +1,78 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+@import url('https://fonts.googleapis.com/css?family=Unica+One');
+html,
+body {
+    position: relative;
+    background-color: #22313F;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+}
 
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/reset';
-@import 'base/base';
+@mixin perfect-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
 
-@import 'components/menu';
-@import 'components/home';
-@import 'components/skills';
-@import 'components/projects';
-@import 'components/contact';
+@mixin transition($duration) {
+    transition: all ease-in-out $duration;
+    -moz-transition: all ease-in-out $duration;
+    -webkit-transition: all ease-in-out $duration;
+}
+
+.soon {
+    &-container {
+        text-align: center;
+        @include perfect-center;
+    }
+    &-heading,
+    &-tm {
+        display: inline;
+        color: #D91E18;
+        text-transform: uppercase;
+    }
+    &-heading {
+        position: relative;
+        font-size: 60px;
+        @include transition(.2s);
+        cursor: pointer;
+        &:hover {
+            letter-spacing: 10px;
+        }
+    }
+    &-tm {
+        position: absolute;
+        font-size: 12px;
+        top: 5px;
+        right: -1.5em;
+        letter-spacing: initial !important;
+    }
+    &-scroll-list {
+        width: 100vw;
+        color: #F2F1EF;
+        margin-top: 1em;
+        li {
+            font-size: 13px;
+            @include transition(.3s);
+            position: absolute;
+            bottom: -1em;
+            width: 100%;
+            opacity: 0;
+            letter-spacing: 1px;
+            &.h {
+                opacity: 0;
+            }
+            &.s {
+                opacity: 1;
+                bottom: 0;
+            }
+            &.e {
+                letter-spacing: 4px;
+            }
+        }
+    }
+}
