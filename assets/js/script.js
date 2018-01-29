@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    //   init the rotating text
+    rotation();
+
     //   handle soon-click
     $(".soon-heading, .soon-tm").on("click", function() {
         var soonlink = "https://www.linkedin.com/in/sławek-pełka-tailordigital/";
@@ -18,7 +21,8 @@ $(document).ready(function() {
 
     //   handle soon scrol scroll
     var intervaltime = 4000;
-    setInterval(function() {
+
+    function rotation() {
         $(".soon-scroll-item").removeClass("e");
         setTimeout(function() {
             $(".soon-scroll-item").removeClass("s").addClass("h");
@@ -34,5 +38,8 @@ $(document).ready(function() {
                 cni++;
             }
         }, 500);
+    }
+    setInterval(function() {
+        rotation();
     }, intervaltime);
 });
