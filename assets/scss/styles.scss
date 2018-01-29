@@ -37,6 +37,7 @@ body {
     &-heading {
         position: relative;
         font-size: 60px;
+        @include perfect-center;
         @include transition(.2s);
         cursor: pointer;
         &:hover {
@@ -51,6 +52,7 @@ body {
         letter-spacing: initial !important;
     }
     &-scroll-list {
+        @include perfect-center;
         width: 100vw;
         color: #F2F1EF;
         margin-top: 1em;
